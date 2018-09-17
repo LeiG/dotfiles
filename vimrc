@@ -3,7 +3,7 @@ set nocompatible
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
-colorscheme zenburn
+colors zenburn
 
 " Facebook indent style
 set shiftwidth=2    " two spaces per indent
