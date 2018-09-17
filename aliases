@@ -1,0 +1,12 @@
+alias cp='cp --backup=numbered'
+alias ln='ln --backup=numbered'
+alias mv='mv -f --backup=numbered'
+
+moshdev () {
+  SERVER=$1
+  COLO=$2
+  /Users/$USER/bin/mosh -6 \
+  --client=/Users/$USER/bin/mosh-client \
+  --server=/home/$USER/bin/mosh-server \
+  $SERVER.$COLO.facebook.com -- tmux -2CC new-session -A -s $SERVER$COLO
+}
