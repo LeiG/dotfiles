@@ -43,7 +43,9 @@ git config --global core.excludesfile ~/.gitignore
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
-mkdir -p ~/.vim/colors
+mkdir -p ~/.vim/colors && \
 curl -LSso ~/.vim/colors/zenburn.vim https://raw.githubusercontent.com/jnurmine/Zenburn/master/colors/zenburn.vim
 
+echo
+echo "Finishing setup and sourcing zshrc file..."
 source ~/.zshrc
