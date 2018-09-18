@@ -2,5 +2,5 @@
 moshdev () {
   SERVER=$1
   COLO=$2
-  mosh -6 $SERVER.$COLO.facebook.com -- tmux -2CC new-session -A -s $SERVER$COLO
+  mosh -6 $SERVER.$COLO.facebook.com -- tmux a
 }
