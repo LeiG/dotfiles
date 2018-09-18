@@ -68,3 +68,11 @@ set colorcolumn=+1,+21 " relative (to textwidth) columns to highlight "
 " Highlighting tabs
 syn match tab display "\t"
 hi link tab Error
+
+" Easier split navigations
+set splitbelow
+set splitright
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>

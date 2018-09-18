@@ -1,3 +1,4 @@
+# attach to an existing session or create a new one if none is found
 moshdev () {
   SERVER=$1
   COLO=$2
