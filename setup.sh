@@ -33,9 +33,15 @@ if [ -f ~/.aliases ]; then
 fi
 ln -s ~/git/dotfiles/aliases ~/.aliases
 
+if [ -f ~/.gitignore ]; then
+    mv ~/.gitignore ~/.gitignore.ex
+fi
+ln -s ~/git/dotfiles/gitignore ~/.gitignore
+git config --global core.excludesfile ~/.gitignore
+
 # install pathogen.vim
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 mkdir -p ~/.vim/colors
-curl -LSso ~/.vim/colors/zenburn.vim https://github.com/jnurmine/Zenburn/blob/master/colors/zenburn.vim
+curl -LSso ~/.vim/colors/zenburn.vim https://raw.githubusercontent.com/jnurmine/Zenburn/master/colors/zenburn.vim
