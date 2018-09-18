@@ -6,10 +6,10 @@ HYPHEN_INSENSITIVE="true"
 
 plugins=(
   git
+  history-substring-search
   mercurial
   z
   zsh-autosuggestions
-  zsh-history-substring-search
   zsh-syntax-highlighting
 )
 
@@ -20,6 +20,10 @@ ZSH_THEME_HG_PROMPT_PREFIX="%{$fg_bold[magenta]%}hg:(%{$fg[red]%}"
 ZSH_THEME_HG_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_HG_PROMPT_DIRTY="%{$fg[magenta]%}) %{$fg[yellow]%}✗%{$reset_color%}"
 ZSH_THEME_HG_PROMPT_CLEAN="%{$fg[magenta]%})"
+
+# bind keys for history-substring-search
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 source $ZSH/oh-my-zsh.sh
 
