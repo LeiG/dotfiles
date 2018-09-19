@@ -1,3 +1,8 @@
+# Source Facebook definitions
+if [ -f /usr/facebook/ops/rc/master.zshrc ]; then
+  source /usr/facebook/ops/rc/master.zshrc
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME"/.oh-my-zsh"
 
