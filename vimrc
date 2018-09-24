@@ -54,12 +54,8 @@ au FileType c,cabal,cpp,haskell,javascript,php,python,ruby,readme,tex,text,thrif
   \ au BufWritePre <buffer>
   \ :call <SID>StripTrailingWhitespaces()
 
-" Set color for screen and tmux.
+" Set 256 color
 set t_Co=256
-if &term =~# '^screen'
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-endif
 
 " Highlighting text past 80 characters.
 set colorcolumn=81,101 " absolute columns to highlight "
