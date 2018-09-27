@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+# NOTE: place current repo under ~/git/dotfiles
+
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
@@ -33,6 +35,11 @@ if [ -f ~/.aliases ]; then
 fi
 ln -s ~/git/dotfiles/aliases ~/.aliases
 
+if [ -f ~/.gitconfig ]; then
+    mv ~/.gitconfig ~/.gitconfig.ex
+fi
+ln -s ~/git/dotfiles/gitconfig ~/.gitconfig
+
 if [ -f ~/.gitignore ]; then
     mv ~/.gitignore ~/.gitignore.ex
 fi
@@ -43,6 +50,10 @@ git config --global core.excludesfile ~/.gitignore
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
+# install vim plugins
+curl -LSso ~/.vim/bundle/surround.vim https://raw.githubusercontent.com/tpope/vim-surround/master/plugin/surround.vim
+
+# install color theme
 mkdir -p ~/.vim/colors && \
 curl -LSso ~/.vim/colors/zenburn.vim https://raw.githubusercontent.com/jnurmine/Zenburn/master/colors/zenburn.vim
 

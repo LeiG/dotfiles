@@ -1,0 +1,6 @@
+[http]
+  proxy = fwdproxy:8080
+[https]
+  proxy = fwdproxy:8080
+[url "https://github.com/"]
+  insteadOf = git://github.com/
