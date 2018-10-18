@@ -3,6 +3,9 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias la='ls -a'
 
+# be quiet
+alias gdb='gdb -q'
+
 # Create a new directory and enter it
 function mkd() {
     mkdir -p "$@" && cd "$@"
@@ -12,5 +15,8 @@ function mkd() {
 moshdev () {
   SERVER=$1
   COLO=$2
-  mosh -6 $SERVER.$COLO.facebook.com -- tmux a
+  /usr/local/bin/mosh -6 \
+  --client=/usr/local/bin/mosh-client \
+  --server=/bin/mosh-server \
+  $SERVER.$COLO.facebook.com -- tmux a
 }
