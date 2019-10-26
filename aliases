@@ -3,6 +3,10 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias la='ls -a'
 
+# for brew installed postgresql
+alias pg_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+alias pg_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+
 # be quiet
 alias gdb='gdb -q'
 
