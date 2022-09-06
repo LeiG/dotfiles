@@ -24,3 +24,9 @@ moshdev () {
   --server=/bin/mosh-server \
   $SERVER.$COLO.facebook.com -- tmux a
 }
+
+moshhome () {
+  /opt/homebrew/bin/mosh \
+  --server=/usr/local/bin/mosh-server \
+  server@192.168.86.27
+}

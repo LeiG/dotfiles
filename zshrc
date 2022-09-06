@@ -52,5 +52,6 @@ SAVEHIST=130000
 fc -IR
 
 export PATH="/usr/local/sbin:$PATH"
+export PATH=/usr/local/bin:$PATH
 
 source ~/.aliases
