@@ -27,7 +27,6 @@ moshdev () {
 
 moshhome () {
   /opt/homebrew/bin/mosh \
-  --client=/opt/homebrew/bin/mosh-client \
   --server=/usr/local/bin/mosh-server \
-  server@192.168.86.27 -- tmux a
+  server@192.168.86.27
 }
