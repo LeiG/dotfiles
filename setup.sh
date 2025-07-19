@@ -8,7 +8,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 if [ -n $ZSH_NAME ]; then
     :
 elif [ hash chsh 2>/dev/null ]; then
-    chsh -s $(which zsh) 
+    chsh -s $(which zsh)
 else
     echo 'Error: chsh is not installed.' >&2
     exit 1

@@ -3,30 +3,10 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias la='ls -a'
 
-# for brew installed postgresql
-alias pg_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-alias pg_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-
 # be quiet
 alias gdb='gdb -q'
 
 # Create a new directory and enter it
 function mkd() {
     mkdir -p "$@" && cd "$@"
-}
-
-# attach to an existing session or create a new one if none is found
-moshdev () {
-  SERVER=$1
-  COLO=$2
-  /usr/local/bin/mosh -6 \
-  --client=/usr/local/bin/mosh-client \
-  --server=/bin/mosh-server \
-  $SERVER.$COLO.facebook.com -- tmux a
-}
-
-moshhome () {
-  /opt/homebrew/bin/mosh \
-  --server=/usr/local/bin/mosh-server \
-  server@192.168.86.27
 }

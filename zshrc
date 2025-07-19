@@ -14,8 +14,6 @@ plugins=(
   history-substring-search
   mercurial
   z
-  zsh-autosuggestions
-  zsh-syntax-highlighting
 )
 
 # initialize vars used for mercurial plugin
