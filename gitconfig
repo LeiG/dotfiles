@@ -3,3 +3,34 @@
 [user]
 	email = leig.inbox@gmail.com
 	name = Lei Gong
+[alias]
+  wt-clean = "!f() { \
+    b=$(git branch --show-current); \
+    if [ \"$b\" = \"main\" ] || [ \"$b\" = \"master\" ]; then \
+      echo \"❌ Refusing to delete $b\"; exit 1; \
+    fi; \
+    wt=$(pwd); \
+    root=$(git rev-parse --git-common-dir)/..; \
+    cd \"$root\" || exit 1; \
+    git worktree remove \"$wt\" && git branch -d \"$b\"; \
+  }; f"
+  wt-new = "!f() { \
+    if [ -z \"$1\" ]; then \
+      echo \"Usage: git wt-new <branch-name>\"; exit 1; \
+    fi; \
+    b=\"$1\"; \
+    dir=\"../wt-${b//\\//-}\"; \
+    git worktree add \"$dir\" -b \"$b\"; \
+    echo \"✅ Created worktree $dir for branch $b\"; \
+  }; f"
+  wt-merge = "!f() { \
+    if [ -z \"$1\" ]; then \
+      echo \"Usage: git wt-merge <branch>\"; exit 1; \
+    fi; \
+    base=$(git branch --show-current); \
+    if [ \"$base\" != \"main\" ] && [ \"$base\" != \"master\" ]; then \
+      echo \"❌ Must run from main/master\"; exit 1; \
+    fi; \
+    git pull --rebase origin \"$base\" || exit 1; \
+    git merge --no-ff \"$1\" && git push origin \"$base\"; \
+  }; f"
