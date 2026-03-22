@@ -5,10 +5,10 @@
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-if [ -n $ZSH_NAME ]; then
+if [ -n "$ZSH_NAME" ]; then
     :
-elif [ hash chsh 2>/dev/null ]; then
-    chsh -s $(which zsh)
+elif command -v chsh >/dev/null 2>&1; then
+    chsh -s "$(which zsh)"
 else
     echo 'Error: chsh is not installed.' >&2
     exit 1
@@ -46,12 +46,26 @@ fi
 ln -s ~/git/dotfiles/gitignore ~/.gitignore
 git config --global core.excludesfile ~/.gitignore
 
+if [ -f ~/.yank.sh ]; then
+    mv ~/.yank.sh ~/.yank.sh.ex
+fi
+ln -s ~/git/dotfiles/yank.sh ~/.yank.sh
+
+# link claude code config
+mkdir -p ~/.claude
+for item in settings.json agents skills; do
+    if [ -e ~/.claude/$item ]; then
+        mv ~/.claude/$item ~/.claude/$item.ex
+    fi
+    ln -s ~/git/dotfiles/claude/$item ~/.claude/$item
+done
+
 # install pathogen.vim
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 # install vim plugins
-curl -LSso ~/.vim/bundle/surround.vim https://raw.githubusercontent.com/tpope/vim-surround/master/plugin/surround.vim
+git clone https://github.com/tpope/vim-surround.git ~/.vim/bundle/vim-surround
 
 # install color theme
 mkdir -p ~/.vim/colors && \

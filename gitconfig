@@ -1,5 +1,5 @@
 [core]
-	excludesfile = /Users/leigong/.gitignore
+	excludesfile = ~/.gitignore
 [user]
 	email = leig.inbox@gmail.com
 	name = Lei Gong

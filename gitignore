@@ -1,1 +1,6 @@
 **/*.un~
+*.swp
+*.swo
+.DS_Store
+.env
+firebase-debug.log

@@ -1,0 +1,39 @@
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "DISABLE_AUTOUPDATER": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "mcp__xcodebuildmcp__*",
+      "Bash(swift build *)",
+      "Bash(swift test *)",
+      "Bash(swiftlint *)",
+      "Bash(xcrun simctl *)"
+    ]
+  },
+  "model": "opus[1m]",
+  "statusLine": {
+    "type": "command",
+    "command": "input=$(cat); model=$(echo \"$input\" | jq -r '.model.display_name'); remaining=$(echo \"$input\" | jq -r '.context_window.remaining_percentage // empty'); if [ -n \"$remaining\" ]; then printf \"%s | Context: %.0f%% remaining\" \"$model\" \"$remaining\"; else echo \"$model\"; fi"
+  },
+  "enabledPlugins": {
+    "code_provenance@Meta": true,
+    "commit-commands@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "firebase@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "github@claude-plugins-official": true,
+    "greptile@claude-plugins-official": true,
+    "llm-rules@Meta": true,
+    "meta@Meta": true,
+    "meta_codesearch@Meta": true,
+    "meta_knowledge@Meta": true,
+    "swift-lsp@claude-plugins-official": true,
+    "trajectory@Meta": true
+  }
+}
