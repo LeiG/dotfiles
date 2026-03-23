@@ -64,7 +64,7 @@ for item in settings.json agents skills; do
     if [ -e ~/.claude/$item ]; then
         mv ~/.claude/$item ~/.claude/$item.ex
     fi
-    ln -s ~/git/dotfiles/claude/$item ~/.claude/$item
+    ln -snf ~/git/dotfiles/claude/$item ~/.claude/$item
 done
 
 # install pathogen.vim
@@ -72,7 +72,9 @@ mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 # install vim plugins
-git clone https://github.com/tpope/vim-surround.git ~/.vim/bundle/vim-surround
+if [ ! -d ~/.vim/bundle/vim-surround ]; then
+    git clone https://github.com/tpope/vim-surround.git ~/.vim/bundle/vim-surround
+fi
 
 # install color theme
 mkdir -p ~/.vim/colors && \

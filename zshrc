@@ -42,6 +42,13 @@ fi
 # Enable Vi key bindings
 set -o vi
 
+# Force blinking block cursor in all vi modes
+function zle-keymap-select zle-line-init {
+  echo -ne '\e[1 q'
+}
+zle -N zle-keymap-select
+zle -N zle-line-init
+
 # save a long history
 HISTSIZE=130000
 SAVEHIST=130000
