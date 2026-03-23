@@ -51,6 +51,13 @@ if [ -f ~/.yank.sh ]; then
 fi
 ln -s ~/git/dotfiles/yank.sh ~/.yank.sh
 
+# link ghostty config
+mkdir -p ~/.config/ghostty
+if [ -f ~/.config/ghostty/config ]; then
+    mv ~/.config/ghostty/config ~/.config/ghostty/config.ex
+fi
+ln -s ~/git/dotfiles/ghostty/config ~/.config/ghostty/config
+
 # link claude code config
 mkdir -p ~/.claude
 for item in settings.json agents skills; do
